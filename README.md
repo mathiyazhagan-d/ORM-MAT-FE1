@@ -1,6 +1,12 @@
+
 # ORM-MAT (Online Restaurant Management)
 
 ORM-MAT is a web application designed to manage online restaurant operations. It provides functionalities for managing products, orders, users, and more. This README provides an overview of the frontend repository of the ORM-MAT project.
+
+## Admin Login Details (for Testing Purposes)
+
+- **Email**: ormmatadmin@gmail.com
+- **Password**: admin123
 
 ## Live Demo
 
@@ -41,4 +47,3 @@ This frontend application interacts with a backend API for managing restaurant d
 [ORM-MAT Backend Repository](https://github.com/mathiyazhagan-d/ORM-MAT-BE)
 
 Ensure that the backend server is running and properly configured.
-
