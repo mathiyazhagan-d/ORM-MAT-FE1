@@ -21,22 +21,22 @@ const Dashboard = () => {
           <Col xs="2" sm="3" md="2" lg="2" className="sidebar pt-3">
             <Nav vertical>
               <NavItem className="m-2">
-                <NavLink className={activeTab === 'home' ? 'active bg-white text-dark rounded-2 ' : 'text-warning'} onClick={() => { toggle('home'); }}>
+                <NavLink className={activeTab === 'home' ? 'active bg-white text-dark rounded-2 ' : 'text-dark'} onClick={() => { toggle('home'); }}>
                   <FaHome /> <span className='responsive'>Home</span>
                 </NavLink>
               </NavItem>
               <NavItem className="m-2">
-                <NavLink className={activeTab === 'orders' ? 'active bg-white text-dark rounded-2 ' : 'text-warning'} onClick={() => { toggle('orders'); }}>
+                <NavLink className={activeTab === 'orders' ? 'active bg-white text-dark rounded-2 ' : 'text-dark'} onClick={() => { toggle('orders'); }}>
                   <FaShoppingCart /> <span className='responsive'>Orders</span>
                 </NavLink>
               </NavItem>
               <NavItem className="m-2">
-                <NavLink className={activeTab === 'products' ? 'active bg-white text-dark rounded-2 ' : 'text-warning'} onClick={() => { toggle('products'); }}>
+                <NavLink className={activeTab === 'products' ? 'active bg-white text-dark rounded-2 ' : 'text-dark'} onClick={() => { toggle('products'); }}>
                   <FaBox /> <span className='responsive'>Products</span>
                 </NavLink>
               </NavItem>
               <NavItem className="m-2">
-                <NavLink className={activeTab === 'users' ? 'active bg-white text-dark rounded-2 ' : 'text-warning'} onClick={() => { toggle('users'); }}>
+                <NavLink className={activeTab === 'users' ? 'active bg-white text-dark rounded-2 ' : 'text-dark'} onClick={() => { toggle('users'); }}>
                   <FaUsers /> <span className='responsive'>Users</span>
                 </NavLink>
               </NavItem>
@@ -55,14 +55,36 @@ const Dashboard = () => {
             )}
             {activeTab === 'products' && (
               <>
-                <div className="d-flex align-items-center order-page justify-content-center  mb-4 gap-4 py-4 rounded-3">
-                  <h2 className="m-0 p-0 text fw-bold">Products</h2>
-                  <Link to="/admin/productlist/page/:page" className=" text-white px-3 py-2 rounded-2">
-                    + Product Actions
-                  </Link>
-                </div>
-               <OtherProducts/>
-              </>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginBottom: '1.5rem',
+          gap: '1rem',
+          padding: '1rem',
+          borderRadius: '0.75rem',
+          backgroundColor: '#f8f9fa', // Light gray background for better visibility
+        }}
+      >
+        <h2 style={{ margin: 0, padding: 0, fontWeight: 'bold', fontSize: '1.5rem' }}>Products</h2>
+       
+      </div>
+      <Link
+          to="/admin/productlist/page/:page"
+          style={{
+            color: 'black', // Set font color to black
+            backgroundColor: '######', 
+            padding: '0.5rem 1rem',
+            borderRadius: '0.25rem',
+            textDecoration: 'none',
+            fontWeight: 'bold',
+          }}
+        >
+          + Product Actions
+        </Link>
+      <OtherProducts />
+    </>
             )}
             {activeTab === 'users' && (
               <div>

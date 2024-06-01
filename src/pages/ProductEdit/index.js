@@ -1,12 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import { Alert,Button,Container,Input,Label,Row,Col, Spinner } from 'reactstrap';
+import { Alert, Button, Container, Input, Label, Row, Col, Spinner } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProduct, updateProductAdmin } from '../../actions/productActions'
 import types from '../../actions/types';
 
+const styles = {
+  container: {
+    marginTop: "65px",
+  },
+  title: {
+    fontSize: "24px",
+    fontWeight: "bold",
+    textAlign: "center",
+    padding: "12px",
+    marginBottom: "20px",
+    fontFamily: "Popins, sans-serif",
+  },
+  form: {
+    width: "50%",
+    margin: "0 auto",
+  },
+  input: {
+    marginBottom: "20px",
+  },
+  button: {
+    width: "100%",
+    marginBottom: "20px",
+    backgroundColor: "lightgreen",
+    border: "0",
+    fontWeight: "bold",
+    fontFamily: "Popins, sans-serif",
+  },
+};
 
-const ProductEdit = ({match, history}) => {
+const ProductEdit = ({ match, history }) => {
 
     const productId = match.params.id;
  
@@ -22,7 +50,7 @@ const ProductEdit = ({match, history}) => {
     const dispatch = useDispatch();
     
     const currentProduct = useSelector(state => state.currentProduct);
-    const {loading, error, product } = currentProduct;
+    const { loading, error, product } = currentProduct;
 
     const currentUser = useSelector(state => state.currentUser);
     const { userInfo } = currentUser;
@@ -93,10 +121,9 @@ const ProductEdit = ({match, history}) => {
 
 
     return (
-      <div className='mb-4'>
-        <h2 className='title text p-2 my-3 text-center'>Edit Product</h2>
+      <div style={styles.container} className='mb-4'>
+        <h2 style={styles.title}>Edit Product</h2>
         <Container>
-          {/* <Link to="/admin/productlist/page/1">Go Back</Link> */}
           {updateError && <Alert severity="error">{updateError}</Alert>}
           {updateSuccess && (
             <Alert severity="success">Updated Successfully</Alert>
@@ -106,58 +133,57 @@ const ProductEdit = ({match, history}) => {
               <Col lg='12' className='d-flex align-items-center justify-content-center'>
             {error && <Alert severity="error">{error}</Alert>}
             {loading && <Alert severity="info">{"Updating..."}</Alert>}
-            <form onSubmit={submitHandler} className='w-50'>
+            <form onSubmit={submitHandler} style={styles.form}>
               <Label>Drink Name</Label>
               <Input
-              className='mb-2'
                 required
                 margin="dense"           
                 label="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                style={styles.input}
               />
               <Label>Ingredients</Label>
               <Input
-              className='mb-2'
                 required
                 margin="dense"               
                 label="ingredients"
                 type="textarea"
                 value={ingredients}
                 onChange={(e) => setIngredients(e.target.value)}
+                style={styles.input}
               />
               <Label>Price</Label>
                <Input
-               className='mb-2'
                 required
                 type="number"
                 margin="dense"
-                
                 label="Price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
+                style={styles.input}
               />
               <Label>Image</Label>
               
-              <Input  type="file" className='mb-2' onChange={uploadImageHandler} />
+              <Input  type="file" onChange={uploadImageHandler} style={styles.input} />
               {uploading && <Spinner color='success' className='text-center'>Loading...</Spinner>}
               <Input
-              className='mb-2'
                 required
                 margin="dense"
                 placeholder='image path'
                 label="Image"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
+                style={styles.input}
               />
               <Label id="select-genre">Category</Label>
               <Input
-              
                 label="select-genre"
                 required
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 type="select"
+                style={styles.input}
               > <option defaultValue={"coffee"}>Choose...</option>     
                 <option value={"tea"}>tea</option>
                 <option value={"juice"}>juice</option>
@@ -167,25 +193,25 @@ const ProductEdit = ({match, history}) => {
               <br />
               <Label>Stock</Label>
               <Input
-              className='mb-2'
                 required
                 margin="dense"
                 type="number"               
                 label="Stock"
                 value={countInStock}
                 onChange={(e) => setCountInStock(e.target.value)}
+                style={styles.input}
               />
               <Label>Description</Label>
               <Input
-              className='mb-2'
                 required
                 margin="dense"        
                 label="Description"
                 type="textarea"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+                style={styles.input}
               />
-              <Button className='order-page mb-5 text border-0 w-100' type="submit">
+              <Button style={styles.button} type="submit">
                 Submit
               </Button>
             </form>

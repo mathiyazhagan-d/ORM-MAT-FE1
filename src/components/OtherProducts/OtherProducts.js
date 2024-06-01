@@ -45,7 +45,8 @@ const OtherProducts = () => {
                 className="card border-0"
               >
                 <img
-                  src={`https://orm-mat-be.onrender.com${product.image}`}
+                  // src={`https://orm-mat-be.onrender.com${product.image}`}
+                  src={product.image}
                   alt={product.name}
                   height="150px"
                   className="rounded-top"
@@ -79,9 +80,18 @@ const OtherProducts = () => {
                   </Button>
       
                   <h6 className="text-center buy-now mb-4">
-                    <span className="text p-2 px-5 rounded-5 order-page">
-                      Buy Now
-                    </span>
+                  <Button style={{ 
+    width: "50%",
+    marginBottom: "20px",
+    backgroundColor: "#8B0000", // Dark red color
+    color: "#FFFFFF", // White text color
+    border: "0",
+    fontWeight: "bold",
+    fontFamily: "Popins, sans-serif",
+    borderRadius: "30px",
+}}>
+    Buy Now
+</Button>
                   </h6>
                 </CardBody>
               </Card>

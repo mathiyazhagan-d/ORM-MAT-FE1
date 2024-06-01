@@ -12,7 +12,8 @@ function Product({ product }) {
           <CardMedia
             component="img"
             height="150"
-            image={`https://orm-mat-be.onrender.com${product.image}`}
+            // image={`https://orm-mat-be.onrender.com${product.image}`}
+            image={product.image}
             alt={product.name}
           />
           <CardContent className="bg rounded-bottom p-0">
@@ -38,9 +39,19 @@ function Product({ product }) {
               {product.category}
             </Button>
             <Typography variant="h6" className="text-center buy-now mb-4">
-              <span className="text p-2 px-5 rounded-5 order-page">
-                Buy Now
-              </span>
+            <Button style={{ 
+    width: "50%",
+    marginBottom: "20px",
+    backgroundColor: "#8B0000", // Dark red color
+    color: "#FFFFFF", // White text color
+    border: "0",
+    fontWeight: "bold",
+    fontFamily: "Popins, sans-serif",
+    borderRadius: "30px",
+}}>
+    Buy Now
+</Button>
+
             </Typography>
           </CardContent>
         </Card>

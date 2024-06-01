@@ -103,9 +103,14 @@ function Product({ match, history }) {
           <Container className="pt-5">
             <Row>
               <Col lg="6">
-                <img
+                {/* <img
                   className="details-img rounded-2 mb-3"
                   src={`https://orm-mat-be.onrender.com${product.image}`}
+                  alt={product.name}
+                /> */}
+                <img
+                  className="details-img rounded-2 mb-3"
+                  src={product.image}
                   alt={product.name}
                 />
               </Col>
