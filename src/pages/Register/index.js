@@ -96,7 +96,7 @@ const RegisterPage = ({ location, history }) => {
                 label="Role"
               >
                 <MenuItem value="customer">Customer</MenuItem>
-                <MenuItem value="seller">Seller</MenuItem>
+                {/* <MenuItem value="seller">Seller</MenuItem> */}
               </Select>
             </FormControl>
             <Button
